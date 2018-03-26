@@ -1,0 +1,7 @@
+<template>
+    <h2>hej med dig</h2>
+    <require from="../menu/menu.html"></require>
+    <navmenu router.bind="router" signout.call="signout()" user.bind="user" signinstatus.bind="signinStatus"></navmenu>
+    <!-- <slot name="admin-content"></slot> -->
+    <router-view></router-view>
+</template>

@@ -1,0 +1,21 @@
+.site-header {
+    background-color: rgba(0,0,0,.85);
+
+    & a {
+        color: #999 !important;
+        transition: ease-in-out color .15s;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+            color: #fff !important;
+            text-decoration: none;
+        }
+    }
+
+    & span {
+        padding: .5rem 1rem;
+        display: block;
+        color: #999;
+    }
+}
