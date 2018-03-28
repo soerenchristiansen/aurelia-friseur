@@ -1,7 +1,12 @@
 <template>
-    <h2>hej med dig</h2>
-    <require from="../menu/menu.html"></require>
-    <navmenu router.bind="router" signout.call="signout()" user.bind="user" signinstatus.bind="signinStatus"></navmenu>
-    <!-- <slot name="admin-content"></slot> -->
-    <router-view></router-view>
+    <require from="../adminmenu/adminmenu.html"></require>
+    <adminmenu router.bind="router" signout.call="signout()" user.bind="user" signinstatus.bind="signinStatus"></adminmenu>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 body-content">
+                <!-- <slot name="admin"></slot> -->
+                <router-view></router-view>
+            </div>
+        </div>
+    </div>
 </template>

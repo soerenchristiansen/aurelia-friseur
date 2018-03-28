@@ -6,18 +6,17 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { AuthenticationService } from './../../services/authentication.service';
 import { LoginStatusUpdated } from './../../messages';
 
-// @inject(AuthenticationService, EventAggregator)
+@inject(AuthenticationService, EventAggregator)
 export class Admin {
     private router: Router;
-    // private user: User;
-    // private signinStatus: boolean = false;
-    private test: string = "hello";
+    private user: User;
+    private signinStatus: boolean = false;
 
-    constructor() {
-        // ea.subscribe(LoginStatusUpdated, (msg: LoginStatusUpdated) => {
-        //     this.signinStatus = msg.signinStatus;
-        //     this.authService.getUser().then(user => this.user = user);
-        // });
+    constructor(private authService: AuthenticationService, ea: EventAggregator) {
+        ea.subscribe(LoginStatusUpdated, (msg: LoginStatusUpdated) => {
+            this.signinStatus = msg.signinStatus;
+            this.authService.getUser().then(user => this.user = user);
+        });
     }
 
     configureRouter(config: RouterConfiguration, router: Router) {
@@ -25,12 +24,24 @@ export class Admin {
             {
                 route: ['', 'profiles'],
                 name: 'profiles',
-                moduleId: PLATFORM.moduleName('../identities/identities'),
+                moduleId: PLATFORM.moduleName('../profiles/profiles'),
                 title: 'Profiles',
-                nav: true
+                nav: true,
+                auth: true
+            },
+            {
+                route: 'test',
+                name: 'test',
+                moduleId: PLATFORM.moduleName('app/components/counter/counter'),
+                nav: true,
+                title: 'Test'
             }
         ]);
 
         this.router = router;
+    }
+
+    signout() {
+        this.authService.signOut();
     }
 }

@@ -1,13 +1,11 @@
 <template>
-    <!-- <require from="../navmenu/navmenu.html"></require>
-    <navmenu router.bind="router" signout.call="signout()" user.bind="user" signinstatus.bind="signinStatus"></navmenu>
+    <require from="../navmenu/navmenu.html"></require>
+    <navmenu router.bind="router"></navmenu>
     <section class="container-fluid">
         <div class="row">
             <div class="col-sm-12 body-content">
-                <router-view></router-view>
+                <slot name="site"></slot>
             </div>
         </div>
-    </div> -->
-
-    <router-view layout-view="app/components/home/home.html"></router-view>
+    </section>
 </template>

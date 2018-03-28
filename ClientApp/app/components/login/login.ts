@@ -3,8 +3,8 @@ import { inject } from 'aurelia-framework';
 
 @inject(AuthenticationService)
 export class login {
-    userName: string = "";
-    password: string = "";
+    userName: string = "astonvilla83@hotmail.com";
+    password: string = "#34Hamster9";
     error: string = "";
     hasError: boolean = false;
 

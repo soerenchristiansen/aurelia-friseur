@@ -1,4 +1,4 @@
-<template bindable="router, signout, user, signinstatus">
+<template bindable="router">
     <nav class="site-header sticky-top py-1">
         <div class="container">
             <ul class="nav flex-column flex-md-row justify-content-center">
@@ -6,19 +6,6 @@
                     <a href.bind="row.href" class="${ row.isActive ? 'nav-link active' : 'nav-link' }">
                         ${row.title}
                     </a>
-                </li>
-                <li class="nav-item" if.bind="!signinstatus">
-                    <a href="/login" class="nav-link">
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item" if.bind="signinstatus">
-                    <a click.delegate="signout()" class="nav-link">
-                        Sign out
-                    </a>
-                </li>
-                <li class="nav-item" if.bind="signinstatus">
-                    <span>Hi ${user.userName}</span>
                 </li>
             </ul>
         </div>

@@ -1,28 +1,32 @@
 <template>
-    <h2>Customers</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Last name</th>
-                <th>City</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr repeat.for="customer of customers">
-                <td>${ customer.name }</td>
-                <td>${ customer.lastName }</td>
-                <td>${ customer.city }</td>
-                <td><button class="btn btn-danger" click.delegate="deleteCustomer(customer.id)">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <section slot="site">
+        <h2>Customers</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last name</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat.for="customer of customers">
+                    <td>${ customer.name }</td>
+                    <td>${ customer.lastName }</td>
+                    <td>${ customer.city }</td>
+                    <td>
+                        <button class="btn btn-danger" click.delegate="deleteCustomer(customer.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <section class="row">
-        <input type="text" class="form-control" name="name" value.bind="customer.name" placeholder="Name">
-        <input type="text" class="form-control" name="lastName" value.bind="customer.lastName" placeholder="Last name">
-        <input type="text" class="form-control" name="city" value.bind="customer.city" placeholder="City">
-        <button class="btn btn-success" click.delegate="createCustomer()">Create</button>
+        <section class="row">
+            <input type="text" class="form-control" name="name" value.bind="customer.name" placeholder="Name">
+            <input type="text" class="form-control" name="lastName" value.bind="customer.lastName" placeholder="Last name">
+            <input type="text" class="form-control" name="city" value.bind="customer.city" placeholder="City">
+            <button class="btn btn-success" click.delegate="createCustomer()">Create</button>
+        </section>
     </section>
 </template>
