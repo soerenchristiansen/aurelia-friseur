@@ -1,9 +1,9 @@
 import { AuthorizeStep } from './../shared/authorize-step';
 import { PLATFORM, inject } from 'aurelia-framework';
-import { Router, RouterConfiguration } from 'aurelia-router';
+import { Router, RouterConfiguration, NavigationInstruction, Next } from 'aurelia-router';
 
 export class Shell {
-    private router: Router;
+    public router: Router;
 
     configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'AureliaFriseur';
@@ -12,13 +12,12 @@ export class Shell {
         config.map([
             {
                 route: '',
-                redirect: 'home',
                 name: 'app',
                 moduleId: PLATFORM.moduleName('../components/app/app'),
                 title: 'App'
             },
             {
-                route: 'home',
+                route: ['','home'],
                 name: 'home',
                 moduleId: PLATFORM.moduleName('../components/home/home'),
                 nav: true,

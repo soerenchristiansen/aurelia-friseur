@@ -32,6 +32,24 @@ namespace AureliaFriseur.Controllers
             return true;
         }
 
+        [HttpPost("[action]")]
+        public async Task<bool> CreateRole([FromBody]string roleName)
+        {
+            if (await _roleManager.RoleExistsAsync(roleName))
+            {
+                return true;
+            }
+            var role = new IdentityRole();
+            role.Name = roleName;
+            var result = await _roleManager.CreateAsync(role);
+            if (result.Succeeded) 
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private async Task AddToRole(string userName, string roleName)
         {
             var user = await _userManager.FindByNameAsync(userName);

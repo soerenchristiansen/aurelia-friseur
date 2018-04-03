@@ -5,7 +5,6 @@ import { inject } from 'aurelia-framework';
 @inject(Router, AuthenticationService)
 export class AuthorizeStep {
     constructor(private router: Router, private authService: AuthenticationService) {
-
     }
 
     async run(navigationInstruction: any, next: any) {

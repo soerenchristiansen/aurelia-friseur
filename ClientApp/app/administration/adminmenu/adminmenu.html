@@ -1,7 +1,7 @@
 <template bindable="router, signout, user, signinstatus">
     <nav class="site-header sticky-top py-1">
         <div class="container">
-            <ul class="nav flex-column flex-md-row justify-content-center">
+            <ul class="nav flex-column flex-md-row justify-content-end">
                 <li repeat.for="row of router.navigation" class="nav-item">
                     <a href.bind="row.href" class="${ row.isActive ? 'nav-link active' : 'nav-link' }">
                         ${row.title}
